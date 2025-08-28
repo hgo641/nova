@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/bus")
 public class BusController {
 
-    private final BusService busService;
-
-    public BusController(BusService busService) {
-        this.busService = busService;
-    }
-
-    @GetMapping("/arrival")
-    public BusArrivalResponse getBusArrival(BusArrivalRequest busArrivalRequest) {
-        return busService.getBusArrival(busArrivalRequest);
-    }
+//    private final BusService busService;
+//
+//    public BusController(BusService busService) {
+//        this.busService = busService;
+//    }
+//
+//    @GetMapping("/arrival")
+//    public BusArrivalResponse getBusArrival(BusArrivalRequest busArrivalRequest) {
+//        return busService.getBusArrival(busArrivalRequest);
+//    }
 }
