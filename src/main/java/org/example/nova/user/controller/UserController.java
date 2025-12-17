@@ -17,19 +17,12 @@ public class UserController {
     @PostMapping("/login")
     public String login(
             @RequestBody LoginRequest loginRequest,
-            HttpSession session
+            // TODO Authorization 헤더값에서 jwt를 추출해오세요
     ) {
 
         // TODO 존재하는 유저인지 DB의 값과 비교해 검증
 
-        // 세션에 로그인 정보 저장
-        // session.setAttribute("LOGIN_USER", );
-        return "LOGIN SUCCESS (sessionId=" + session.getId() + ")";
-    }
-
-    @PostMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "LOGOUT SUCCESS";
+        // TODO 응답값에 생성한 jwt를 포함해주세요.
+        return "LOGIN SUCCESS (token= )";
     }
 }
