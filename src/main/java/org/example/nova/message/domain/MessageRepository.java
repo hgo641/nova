@@ -47,15 +47,17 @@ public class MessageRepository {
 
     public long createMessage(Message message) {
         String sql = """
-                    INSERT INTO message (message)
-                    VALUES (?)
-                """;
+                INSERT INTO message (message, created_at)
+                VALUES (?, ?)
+            """;
 
         try (
                 Connection conn = dataSource.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)
         ) {
             ps.setString(1, message.getMessage());
+            ps.setTimestamp(2, Timestamp.valueOf(message.getCreatedAt()));
+
             ps.executeUpdate();
 
             try (ResultSet keys = ps.getGeneratedKeys()) {
