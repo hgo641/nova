@@ -1,0 +1,32 @@
+spring:
+  mvc:
+    async:
+      request-timeout: 5s
+  datasource:
+    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      connection-timeout: 3000   # 3초로 수정
+  jackson:
+    time-zone: Asia/Seoul
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  session:
+    store-type: redis
+    timeout: 30m
+open-api:
+  bus:
+    service-key: testkey
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
