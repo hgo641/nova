@@ -1,6 +1,7 @@
 package org.example.nova.message.domain;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+public interface MessageRepository {
+    Message findById(Long id);
 
-public interface MessageRepository extends JpaRepository<Message, Long> {
+    int createMessage(Message message);
 }

@@ -1,26 +1,21 @@
 package org.example.nova.message.domain;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-@Entity
 public class Message {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String message;
-
-    private LocalDateTime createdAt;
-
-    protected Message() {
-        // JPA 기본 생성자
-    }
+    private final String message;
+    private final LocalDateTime createdAt;
 
     public Message(String message) {
         this.message = message;
         this.createdAt = LocalDateTime.now();
+    }
+
+    public Message(Long id, String message, LocalDateTime createdAt) {
+        this.id = id;
+        this.message = message;
+        this.createdAt = createdAt;
     }
 
     public Long getId() {

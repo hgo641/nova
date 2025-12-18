@@ -19,7 +19,7 @@ public class MessageCacheRepository {
 
     public void save(Message message) {
         String key = PREFIX + message.getId();
-        redisTemplate.opsForValue().set(key, message, Duration.ofMinutes(1));
+        redisTemplate.opsForValue().set(key, message, Duration.ofMinutes(10));
     }
 
     public Optional<Message> findById(Long id) {
