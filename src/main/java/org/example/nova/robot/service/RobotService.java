@@ -1,5 +1,6 @@
 package org.example.nova.robot.service;
 
+import org.example.nova.robot.dto.ElevatorRequest;
 import org.example.nova.robot.dto.ElevatorResponse;
 import org.example.nova.robot.mapper.RobotMapper;
 import org.springframework.stereotype.Service;
@@ -16,7 +17,11 @@ public class RobotService {
     }
 
     public List<ElevatorResponse> getElevators(String apartmentId) {
-        // TODO 이곳을 채워주세요.
-        return null;
+        return robotMapper.findByApartmentId(apartmentId);
+    }
+
+
+    public void createElevator(ElevatorRequest elevatorRequest) {
+        robotMapper.createElevator(elevatorRequest);
     }
 }

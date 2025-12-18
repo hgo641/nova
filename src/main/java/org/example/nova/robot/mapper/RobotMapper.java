@@ -1,6 +1,14 @@
 package org.example.nova.robot.mapper;
 
-public interface RobotMapper {
+import org.apache.ibatis.annotations.Mapper;
+import org.example.nova.robot.dto.ElevatorRequest;
+import org.example.nova.robot.dto.ElevatorResponse;
 
-    // TODO 이곳을 채워주세요.
+import java.util.List;
+
+@Mapper
+public interface RobotMapper {
+    List<ElevatorResponse> findByApartmentId(String apartmentId);
+
+    void createElevator(ElevatorRequest elevatorRequest);
 }
