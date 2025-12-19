@@ -6,7 +6,7 @@
 <mapper namespace="org.example.nova.robot.mapper.RobotMapper">
 
 
-    <select id="findByApartmentId" resultType="org.example.nova.robot.dto.ElevatorResponse">
+    <select id="findByApartmentId" resultType="org.example.nova.robot.domain.Elevator">
         SELECT
             elevator_id,
             apartment_id,
@@ -17,7 +17,10 @@
             apartment_id = #{apartmentId}
     </select>
 
-    <insert id="createElevator" parameterType="org.example.nova.robot.dto.ElevatorRequest">
+    <insert id="createElevator"
+            parameterType="org.example.nova.robot.domain.Elevator"
+            useGeneratedKeys="true"
+            keyProperty="elevatorId">
 
         INSERT INTO elevator (apartment_id, dong, hogi)
         VALUES (#{apartmentId}, #{dong}, #{hogi})
